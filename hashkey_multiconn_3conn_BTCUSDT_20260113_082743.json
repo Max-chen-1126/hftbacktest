@@ -1,0 +1,1795 @@
+{
+  "metadata": {
+    "symbol": "BTCUSDT",
+    "duration": 60,
+    "num_connections": 3,
+    "environment": "production",
+    "ws_url": "wss://stream-pro.hashkey.com/quote/ws/v2",
+    "recorded_at": "2026-01-13T08:27:43.207661",
+    "total_events": 253
+  },
+  "per_connection_stats": {
+    "0": {
+      "depth_count": 84
+    },
+    "1": {
+      "depth_count": 84
+    },
+    "2": {
+      "depth_count": 85
+    }
+  },
+  "events": [
+    {
+      "version": "604862138_2",
+      "version_id": 604862138,
+      "conn_id": 2,
+      "local_ts_ns": 2758222046383250,
+      "exch_ts": 1768264033562
+    },
+    {
+      "version": "604862138_2",
+      "version_id": 604862138,
+      "conn_id": 0,
+      "local_ts_ns": 2758222047265208,
+      "exch_ts": 1768264033562
+    },
+    {
+      "version": "604862138_2",
+      "version_id": 604862138,
+      "conn_id": 1,
+      "local_ts_ns": 2758222047490083,
+      "exch_ts": 1768264033562
+    },
+    {
+      "version": "604862165_2",
+      "version_id": 604862165,
+      "conn_id": 0,
+      "local_ts_ns": 2758222148947500,
+      "exch_ts": 1768264033666
+    },
+    {
+      "version": "604862165_2",
+      "version_id": 604862165,
+      "conn_id": 2,
+      "local_ts_ns": 2758222149554458,
+      "exch_ts": 1768264033666
+    },
+    {
+      "version": "604862165_2",
+      "version_id": 604862165,
+      "conn_id": 1,
+      "local_ts_ns": 2758222149761750,
+      "exch_ts": 1768264033666
+    },
+    {
+      "version": "604862166_2",
+      "version_id": 604862166,
+      "conn_id": 2,
+      "local_ts_ns": 2758222355777916,
+      "exch_ts": 1768264033870
+    },
+    {
+      "version": "604862166_2",
+      "version_id": 604862166,
+      "conn_id": 0,
+      "local_ts_ns": 2758222356187583,
+      "exch_ts": 1768264033870
+    },
+    {
+      "version": "604862166_2",
+      "version_id": 604862166,
+      "conn_id": 1,
+      "local_ts_ns": 2758222356314375,
+      "exch_ts": 1768264033870
+    },
+    {
+      "version": "604862167_2",
+      "version_id": 604862167,
+      "conn_id": 2,
+      "local_ts_ns": 2758222456302250,
+      "exch_ts": 1768264033971
+    },
+    {
+      "version": "604862167_2",
+      "version_id": 604862167,
+      "conn_id": 1,
+      "local_ts_ns": 2758222457220041,
+      "exch_ts": 1768264033971
+    },
+    {
+      "version": "604862167_2",
+      "version_id": 604862167,
+      "conn_id": 0,
+      "local_ts_ns": 2758222457390416,
+      "exch_ts": 1768264033971
+    },
+    {
+      "version": "604862168_2",
+      "version_id": 604862168,
+      "conn_id": 2,
+      "local_ts_ns": 2758222555994041,
+      "exch_ts": 1768264034073
+    },
+    {
+      "version": "604862168_2",
+      "version_id": 604862168,
+      "conn_id": 0,
+      "local_ts_ns": 2758222556575250,
+      "exch_ts": 1768264034073
+    },
+    {
+      "version": "604862168_2",
+      "version_id": 604862168,
+      "conn_id": 1,
+      "local_ts_ns": 2758222556713875,
+      "exch_ts": 1768264034073
+    },
+    {
+      "version": "604862169_2",
+      "version_id": 604862169,
+      "conn_id": 2,
+      "local_ts_ns": 2758224185476000,
+      "exch_ts": 1768264035696
+    },
+    {
+      "version": "604862169_2",
+      "version_id": 604862169,
+      "conn_id": 0,
+      "local_ts_ns": 2758224186657625,
+      "exch_ts": 1768264035696
+    },
+    {
+      "version": "604862169_2",
+      "version_id": 604862169,
+      "conn_id": 1,
+      "local_ts_ns": 2758224187410500,
+      "exch_ts": 1768264035696
+    },
+    {
+      "version": "604862170_2",
+      "version_id": 604862170,
+      "conn_id": 2,
+      "local_ts_ns": 2758224490805166,
+      "exch_ts": 1768264036003
+    },
+    {
+      "version": "604862170_2",
+      "version_id": 604862170,
+      "conn_id": 0,
+      "local_ts_ns": 2758224491066625,
+      "exch_ts": 1768264036003
+    },
+    {
+      "version": "604862170_2",
+      "version_id": 604862170,
+      "conn_id": 1,
+      "local_ts_ns": 2758224491173708,
+      "exch_ts": 1768264036003
+    },
+    {
+      "version": "604862171_2",
+      "version_id": 604862171,
+      "conn_id": 2,
+      "local_ts_ns": 2758224589284625,
+      "exch_ts": 1768264036107
+    },
+    {
+      "version": "604862171_2",
+      "version_id": 604862171,
+      "conn_id": 0,
+      "local_ts_ns": 2758224589731125,
+      "exch_ts": 1768264036107
+    },
+    {
+      "version": "604862171_2",
+      "version_id": 604862171,
+      "conn_id": 1,
+      "local_ts_ns": 2758224590001875,
+      "exch_ts": 1768264036107
+    },
+    {
+      "version": "604862172_2",
+      "version_id": 604862172,
+      "conn_id": 0,
+      "local_ts_ns": 2758224902935750,
+      "exch_ts": 1768264036322
+    },
+    {
+      "version": "604862172_2",
+      "version_id": 604862172,
+      "conn_id": 2,
+      "local_ts_ns": 2758224903444625,
+      "exch_ts": 1768264036322
+    },
+    {
+      "version": "604862172_2",
+      "version_id": 604862172,
+      "conn_id": 1,
+      "local_ts_ns": 2758224903661583,
+      "exch_ts": 1768264036322
+    },
+    {
+      "version": "604862173_2",
+      "version_id": 604862173,
+      "conn_id": 2,
+      "local_ts_ns": 2758225137499666,
+      "exch_ts": 1768264036652
+    },
+    {
+      "version": "604862173_2",
+      "version_id": 604862173,
+      "conn_id": 0,
+      "local_ts_ns": 2758225138442625,
+      "exch_ts": 1768264036652
+    },
+    {
+      "version": "604862173_2",
+      "version_id": 604862173,
+      "conn_id": 1,
+      "local_ts_ns": 2758225139034250,
+      "exch_ts": 1768264036652
+    },
+    {
+      "version": "604862174_2",
+      "version_id": 604862174,
+      "conn_id": 2,
+      "local_ts_ns": 2758225562305291,
+      "exch_ts": 1768264037071
+    },
+    {
+      "version": "604862174_2",
+      "version_id": 604862174,
+      "conn_id": 0,
+      "local_ts_ns": 2758225562983000,
+      "exch_ts": 1768264037071
+    },
+    {
+      "version": "604862174_2",
+      "version_id": 604862174,
+      "conn_id": 1,
+      "local_ts_ns": 2758225563204000,
+      "exch_ts": 1768264037071
+    },
+    {
+      "version": "604862175_2",
+      "version_id": 604862175,
+      "conn_id": 2,
+      "local_ts_ns": 2758227258016750,
+      "exch_ts": 1768264038739
+    },
+    {
+      "version": "604862175_2",
+      "version_id": 604862175,
+      "conn_id": 0,
+      "local_ts_ns": 2758227258701375,
+      "exch_ts": 1768264038739
+    },
+    {
+      "version": "604862175_2",
+      "version_id": 604862175,
+      "conn_id": 1,
+      "local_ts_ns": 2758227258926583,
+      "exch_ts": 1768264038739
+    },
+    {
+      "version": "604862176_2",
+      "version_id": 604862176,
+      "conn_id": 2,
+      "local_ts_ns": 2758227746727041,
+      "exch_ts": 1768264039261
+    },
+    {
+      "version": "604862176_2",
+      "version_id": 604862176,
+      "conn_id": 0,
+      "local_ts_ns": 2758227747331333,
+      "exch_ts": 1768264039261
+    },
+    {
+      "version": "604862176_2",
+      "version_id": 604862176,
+      "conn_id": 1,
+      "local_ts_ns": 2758227747561125,
+      "exch_ts": 1768264039261
+    },
+    {
+      "version": "604862186_2",
+      "version_id": 604862186,
+      "conn_id": 2,
+      "local_ts_ns": 2758230216643583,
+      "exch_ts": 1768264041729
+    },
+    {
+      "version": "604862186_2",
+      "version_id": 604862186,
+      "conn_id": 0,
+      "local_ts_ns": 2758230217286583,
+      "exch_ts": 1768264041729
+    },
+    {
+      "version": "604862186_2",
+      "version_id": 604862186,
+      "conn_id": 1,
+      "local_ts_ns": 2758230223509583,
+      "exch_ts": 1768264041729
+    },
+    {
+      "version": "604862204_2",
+      "version_id": 604862204,
+      "conn_id": 2,
+      "local_ts_ns": 2758230326886916,
+      "exch_ts": 1768264041838
+    },
+    {
+      "version": "604862204_2",
+      "version_id": 604862204,
+      "conn_id": 0,
+      "local_ts_ns": 2758230327623791,
+      "exch_ts": 1768264041838
+    },
+    {
+      "version": "604862204_2",
+      "version_id": 604862204,
+      "conn_id": 1,
+      "local_ts_ns": 2758230327908333,
+      "exch_ts": 1768264041838
+    },
+    {
+      "version": "604862215_2",
+      "version_id": 604862215,
+      "conn_id": 2,
+      "local_ts_ns": 2758230435024625,
+      "exch_ts": 1768264041948
+    },
+    {
+      "version": "604862215_2",
+      "version_id": 604862215,
+      "conn_id": 0,
+      "local_ts_ns": 2758230435466625,
+      "exch_ts": 1768264041948
+    },
+    {
+      "version": "604862215_2",
+      "version_id": 604862215,
+      "conn_id": 1,
+      "local_ts_ns": 2758230435704208,
+      "exch_ts": 1768264041948
+    },
+    {
+      "version": "604862221_2",
+      "version_id": 604862221,
+      "conn_id": 2,
+      "local_ts_ns": 2758230539934333,
+      "exch_ts": 1768264042055
+    },
+    {
+      "version": "604862221_2",
+      "version_id": 604862221,
+      "conn_id": 0,
+      "local_ts_ns": 2758230541443875,
+      "exch_ts": 1768264042055
+    },
+    {
+      "version": "604862221_2",
+      "version_id": 604862221,
+      "conn_id": 1,
+      "local_ts_ns": 2758230541600583,
+      "exch_ts": 1768264042055
+    },
+    {
+      "version": "604862224_2",
+      "version_id": 604862224,
+      "conn_id": 0,
+      "local_ts_ns": 2758231191160041,
+      "exch_ts": 1768264042705
+    },
+    {
+      "version": "604862224_2",
+      "version_id": 604862224,
+      "conn_id": 2,
+      "local_ts_ns": 2758231191877958,
+      "exch_ts": 1768264042705
+    },
+    {
+      "version": "604862224_2",
+      "version_id": 604862224,
+      "conn_id": 1,
+      "local_ts_ns": 2758231192137458,
+      "exch_ts": 1768264042705
+    },
+    {
+      "version": "604862229_2",
+      "version_id": 604862229,
+      "conn_id": 2,
+      "local_ts_ns": 2758231302502791,
+      "exch_ts": 1768264042816
+    },
+    {
+      "version": "604862229_2",
+      "version_id": 604862229,
+      "conn_id": 1,
+      "local_ts_ns": 2758231303487541,
+      "exch_ts": 1768264042816
+    },
+    {
+      "version": "604862229_2",
+      "version_id": 604862229,
+      "conn_id": 0,
+      "local_ts_ns": 2758231303725083,
+      "exch_ts": 1768264042816
+    },
+    {
+      "version": "604862238_2",
+      "version_id": 604862238,
+      "conn_id": 2,
+      "local_ts_ns": 2758231602660416,
+      "exch_ts": 1768264043121
+    },
+    {
+      "version": "604862238_2",
+      "version_id": 604862238,
+      "conn_id": 0,
+      "local_ts_ns": 2758231603321416,
+      "exch_ts": 1768264043121
+    },
+    {
+      "version": "604862238_2",
+      "version_id": 604862238,
+      "conn_id": 1,
+      "local_ts_ns": 2758231603554958,
+      "exch_ts": 1768264043121
+    },
+    {
+      "version": "604862265_2",
+      "version_id": 604862265,
+      "conn_id": 2,
+      "local_ts_ns": 2758231709843916,
+      "exch_ts": 1768264043225
+    },
+    {
+      "version": "604862265_2",
+      "version_id": 604862265,
+      "conn_id": 1,
+      "local_ts_ns": 2758231710216541,
+      "exch_ts": 1768264043225
+    },
+    {
+      "version": "604862265_2",
+      "version_id": 604862265,
+      "conn_id": 0,
+      "local_ts_ns": 2758231710501208,
+      "exch_ts": 1768264043225
+    },
+    {
+      "version": "604862267_2",
+      "version_id": 604862267,
+      "conn_id": 0,
+      "local_ts_ns": 2758231810746416,
+      "exch_ts": 1768264043328
+    },
+    {
+      "version": "604862267_2",
+      "version_id": 604862267,
+      "conn_id": 2,
+      "local_ts_ns": 2758231811476916,
+      "exch_ts": 1768264043328
+    },
+    {
+      "version": "604862267_2",
+      "version_id": 604862267,
+      "conn_id": 1,
+      "local_ts_ns": 2758231812194875,
+      "exch_ts": 1768264043328
+    },
+    {
+      "version": "604862271_2",
+      "version_id": 604862271,
+      "conn_id": 2,
+      "local_ts_ns": 2758231912542166,
+      "exch_ts": 1768264043429
+    },
+    {
+      "version": "604862271_2",
+      "version_id": 604862271,
+      "conn_id": 0,
+      "local_ts_ns": 2758231913696000,
+      "exch_ts": 1768264043429
+    },
+    {
+      "version": "604862271_2",
+      "version_id": 604862271,
+      "conn_id": 1,
+      "local_ts_ns": 2758231914356083,
+      "exch_ts": 1768264043429
+    },
+    {
+      "version": "604862277_2",
+      "version_id": 604862277,
+      "conn_id": 2,
+      "local_ts_ns": 2758232017186750,
+      "exch_ts": 1768264043533
+    },
+    {
+      "version": "604862277_2",
+      "version_id": 604862277,
+      "conn_id": 0,
+      "local_ts_ns": 2758232018320291,
+      "exch_ts": 1768264043533
+    },
+    {
+      "version": "604862277_2",
+      "version_id": 604862277,
+      "conn_id": 1,
+      "local_ts_ns": 2758232018631583,
+      "exch_ts": 1768264043533
+    },
+    {
+      "version": "604862278_2",
+      "version_id": 604862278,
+      "conn_id": 2,
+      "local_ts_ns": 2758232125645291,
+      "exch_ts": 1768264043640
+    },
+    {
+      "version": "604862278_2",
+      "version_id": 604862278,
+      "conn_id": 0,
+      "local_ts_ns": 2758232126615958,
+      "exch_ts": 1768264043640
+    },
+    {
+      "version": "604862278_2",
+      "version_id": 604862278,
+      "conn_id": 1,
+      "local_ts_ns": 2758232126865166,
+      "exch_ts": 1768264043640
+    },
+    {
+      "version": "604862280_2",
+      "version_id": 604862280,
+      "conn_id": 2,
+      "local_ts_ns": 2758232379205666,
+      "exch_ts": 1768264043854
+    },
+    {
+      "version": "604862280_2",
+      "version_id": 604862280,
+      "conn_id": 0,
+      "local_ts_ns": 2758232380114083,
+      "exch_ts": 1768264043854
+    },
+    {
+      "version": "604862280_2",
+      "version_id": 604862280,
+      "conn_id": 1,
+      "local_ts_ns": 2758232380261458,
+      "exch_ts": 1768264043854
+    },
+    {
+      "version": "604862286_2",
+      "version_id": 604862286,
+      "conn_id": 2,
+      "local_ts_ns": 2758232853612541,
+      "exch_ts": 1768264044367
+    },
+    {
+      "version": "604862286_2",
+      "version_id": 604862286,
+      "conn_id": 0,
+      "local_ts_ns": 2758232854544166,
+      "exch_ts": 1768264044367
+    },
+    {
+      "version": "604862286_2",
+      "version_id": 604862286,
+      "conn_id": 1,
+      "local_ts_ns": 2758232854807500,
+      "exch_ts": 1768264044367
+    },
+    {
+      "version": "604862287_2",
+      "version_id": 604862287,
+      "conn_id": 2,
+      "local_ts_ns": 2758234018855041,
+      "exch_ts": 1768264045495
+    },
+    {
+      "version": "604862287_2",
+      "version_id": 604862287,
+      "conn_id": 0,
+      "local_ts_ns": 2758234019711875,
+      "exch_ts": 1768264045495
+    },
+    {
+      "version": "604862287_2",
+      "version_id": 604862287,
+      "conn_id": 1,
+      "local_ts_ns": 2758234019932041,
+      "exch_ts": 1768264045495
+    },
+    {
+      "version": "604862289_2",
+      "version_id": 604862289,
+      "conn_id": 2,
+      "local_ts_ns": 2758234077944041,
+      "exch_ts": 1768264045596
+    },
+    {
+      "version": "604862289_2",
+      "version_id": 604862289,
+      "conn_id": 0,
+      "local_ts_ns": 2758234078405833,
+      "exch_ts": 1768264045596
+    },
+    {
+      "version": "604862289_2",
+      "version_id": 604862289,
+      "conn_id": 1,
+      "local_ts_ns": 2758234078609166,
+      "exch_ts": 1768264045596
+    },
+    {
+      "version": "604862291_2",
+      "version_id": 604862291,
+      "conn_id": 2,
+      "local_ts_ns": 2758234180503541,
+      "exch_ts": 1768264045697
+    },
+    {
+      "version": "604862291_2",
+      "version_id": 604862291,
+      "conn_id": 0,
+      "local_ts_ns": 2758234181497208,
+      "exch_ts": 1768264045697
+    },
+    {
+      "version": "604862291_2",
+      "version_id": 604862291,
+      "conn_id": 1,
+      "local_ts_ns": 2758234181974166,
+      "exch_ts": 1768264045697
+    },
+    {
+      "version": "604862294_2",
+      "version_id": 604862294,
+      "conn_id": 2,
+      "local_ts_ns": 2758234976237291,
+      "exch_ts": 1768264046422
+    },
+    {
+      "version": "604862294_2",
+      "version_id": 604862294,
+      "conn_id": 0,
+      "local_ts_ns": 2758234976950416,
+      "exch_ts": 1768264046422
+    },
+    {
+      "version": "604862294_2",
+      "version_id": 604862294,
+      "conn_id": 1,
+      "local_ts_ns": 2758234977192000,
+      "exch_ts": 1768264046422
+    },
+    {
+      "version": "604862295_2",
+      "version_id": 604862295,
+      "conn_id": 0,
+      "local_ts_ns": 2758235649133416,
+      "exch_ts": 1768264047153
+    },
+    {
+      "version": "604862295_2",
+      "version_id": 604862295,
+      "conn_id": 1,
+      "local_ts_ns": 2758235649765833,
+      "exch_ts": 1768264047153
+    },
+    {
+      "version": "604862295_2",
+      "version_id": 604862295,
+      "conn_id": 2,
+      "local_ts_ns": 2758235650176250,
+      "exch_ts": 1768264047153
+    },
+    {
+      "version": "604862296_2",
+      "version_id": 604862296,
+      "conn_id": 2,
+      "local_ts_ns": 2758235741894000,
+      "exch_ts": 1768264047256
+    },
+    {
+      "version": "604862296_2",
+      "version_id": 604862296,
+      "conn_id": 0,
+      "local_ts_ns": 2758235742341875,
+      "exch_ts": 1768264047256
+    },
+    {
+      "version": "604862296_2",
+      "version_id": 604862296,
+      "conn_id": 1,
+      "local_ts_ns": 2758235742684166,
+      "exch_ts": 1768264047256
+    },
+    {
+      "version": "604862297_2",
+      "version_id": 604862297,
+      "conn_id": 2,
+      "local_ts_ns": 2758235838481375,
+      "exch_ts": 1768264047357
+    },
+    {
+      "version": "604862297_2",
+      "version_id": 604862297,
+      "conn_id": 0,
+      "local_ts_ns": 2758235838764125,
+      "exch_ts": 1768264047357
+    },
+    {
+      "version": "604862297_2",
+      "version_id": 604862297,
+      "conn_id": 1,
+      "local_ts_ns": 2758235838984000,
+      "exch_ts": 1768264047357
+    },
+    {
+      "version": "604862298_2",
+      "version_id": 604862298,
+      "conn_id": 2,
+      "local_ts_ns": 2758236958314500,
+      "exch_ts": 1768264048476
+    },
+    {
+      "version": "604862298_2",
+      "version_id": 604862298,
+      "conn_id": 0,
+      "local_ts_ns": 2758236959368208,
+      "exch_ts": 1768264048476
+    },
+    {
+      "version": "604862298_2",
+      "version_id": 604862298,
+      "conn_id": 1,
+      "local_ts_ns": 2758236959626208,
+      "exch_ts": 1768264048476
+    },
+    {
+      "version": "604862304_2",
+      "version_id": 604862304,
+      "conn_id": 2,
+      "local_ts_ns": 2758237159571708,
+      "exch_ts": 1768264048677
+    },
+    {
+      "version": "604862304_2",
+      "version_id": 604862304,
+      "conn_id": 0,
+      "local_ts_ns": 2758237160038583,
+      "exch_ts": 1768264048677
+    },
+    {
+      "version": "604862304_2",
+      "version_id": 604862304,
+      "conn_id": 1,
+      "local_ts_ns": 2758237160333916,
+      "exch_ts": 1768264048677
+    },
+    {
+      "version": "604862369_2",
+      "version_id": 604862369,
+      "conn_id": 2,
+      "local_ts_ns": 2758237282085875,
+      "exch_ts": 1768264048792
+    },
+    {
+      "version": "604862369_2",
+      "version_id": 604862369,
+      "conn_id": 0,
+      "local_ts_ns": 2758237282491000,
+      "exch_ts": 1768264048792
+    },
+    {
+      "version": "604862369_2",
+      "version_id": 604862369,
+      "conn_id": 1,
+      "local_ts_ns": 2758237282747208,
+      "exch_ts": 1768264048792
+    },
+    {
+      "version": "604862421_2",
+      "version_id": 604862421,
+      "conn_id": 2,
+      "local_ts_ns": 2758237390693458,
+      "exch_ts": 1768264048903
+    },
+    {
+      "version": "604862421_2",
+      "version_id": 604862421,
+      "conn_id": 0,
+      "local_ts_ns": 2758237391100458,
+      "exch_ts": 1768264048903
+    },
+    {
+      "version": "604862421_2",
+      "version_id": 604862421,
+      "conn_id": 1,
+      "local_ts_ns": 2758237391383458,
+      "exch_ts": 1768264048903
+    },
+    {
+      "version": "604862428_2",
+      "version_id": 604862428,
+      "conn_id": 2,
+      "local_ts_ns": 2758237500196541,
+      "exch_ts": 1768264049012
+    },
+    {
+      "version": "604862428_2",
+      "version_id": 604862428,
+      "conn_id": 1,
+      "local_ts_ns": 2758237500603625,
+      "exch_ts": 1768264049012
+    },
+    {
+      "version": "604862428_2",
+      "version_id": 604862428,
+      "conn_id": 0,
+      "local_ts_ns": 2758237500771541,
+      "exch_ts": 1768264049012
+    },
+    {
+      "version": "604862434_2",
+      "version_id": 604862434,
+      "conn_id": 2,
+      "local_ts_ns": 2758237608036000,
+      "exch_ts": 1768264049122
+    },
+    {
+      "version": "604862434_2",
+      "version_id": 604862434,
+      "conn_id": 0,
+      "local_ts_ns": 2758237608569875,
+      "exch_ts": 1768264049122
+    },
+    {
+      "version": "604862434_2",
+      "version_id": 604862434,
+      "conn_id": 1,
+      "local_ts_ns": 2758237608923291,
+      "exch_ts": 1768264049122
+    },
+    {
+      "version": "604862441_2",
+      "version_id": 604862441,
+      "conn_id": 2,
+      "local_ts_ns": 2758237712038833,
+      "exch_ts": 1768264049226
+    },
+    {
+      "version": "604862441_2",
+      "version_id": 604862441,
+      "conn_id": 0,
+      "local_ts_ns": 2758237712428500,
+      "exch_ts": 1768264049226
+    },
+    {
+      "version": "604862441_2",
+      "version_id": 604862441,
+      "conn_id": 1,
+      "local_ts_ns": 2758237712763541,
+      "exch_ts": 1768264049226
+    },
+    {
+      "version": "604862447_2",
+      "version_id": 604862447,
+      "conn_id": 2,
+      "local_ts_ns": 2758237818508041,
+      "exch_ts": 1768264049333
+    },
+    {
+      "version": "604862447_2",
+      "version_id": 604862447,
+      "conn_id": 0,
+      "local_ts_ns": 2758237820276333,
+      "exch_ts": 1768264049333
+    },
+    {
+      "version": "604862447_2",
+      "version_id": 604862447,
+      "conn_id": 1,
+      "local_ts_ns": 2758237820482166,
+      "exch_ts": 1768264049333
+    },
+    {
+      "version": "604862448_2",
+      "version_id": 604862448,
+      "conn_id": 0,
+      "local_ts_ns": 2758238022238833,
+      "exch_ts": 1768264049539
+    },
+    {
+      "version": "604862448_2",
+      "version_id": 604862448,
+      "conn_id": 2,
+      "local_ts_ns": 2758238022983916,
+      "exch_ts": 1768264049539
+    },
+    {
+      "version": "604862448_2",
+      "version_id": 604862448,
+      "conn_id": 1,
+      "local_ts_ns": 2758238023220416,
+      "exch_ts": 1768264049539
+    },
+    {
+      "version": "604862458_2",
+      "version_id": 604862458,
+      "conn_id": 2,
+      "local_ts_ns": 2758238351613708,
+      "exch_ts": 1768264049866
+    },
+    {
+      "version": "604862458_2",
+      "version_id": 604862458,
+      "conn_id": 0,
+      "local_ts_ns": 2758238352207083,
+      "exch_ts": 1768264049866
+    },
+    {
+      "version": "604862458_2",
+      "version_id": 604862458,
+      "conn_id": 1,
+      "local_ts_ns": 2758238352545416,
+      "exch_ts": 1768264049866
+    },
+    {
+      "version": "604862469_2",
+      "version_id": 604862469,
+      "conn_id": 2,
+      "local_ts_ns": 2758238461076375,
+      "exch_ts": 1768264049976
+    },
+    {
+      "version": "604862469_2",
+      "version_id": 604862469,
+      "conn_id": 1,
+      "local_ts_ns": 2758238461602125,
+      "exch_ts": 1768264049976
+    },
+    {
+      "version": "604862469_2",
+      "version_id": 604862469,
+      "conn_id": 0,
+      "local_ts_ns": 2758238461903375,
+      "exch_ts": 1768264049976
+    },
+    {
+      "version": "604862472_2",
+      "version_id": 604862472,
+      "conn_id": 2,
+      "local_ts_ns": 2758238558892916,
+      "exch_ts": 1768264050077
+    },
+    {
+      "version": "604862472_2",
+      "version_id": 604862472,
+      "conn_id": 0,
+      "local_ts_ns": 2758238559525958,
+      "exch_ts": 1768264050077
+    },
+    {
+      "version": "604862472_2",
+      "version_id": 604862472,
+      "conn_id": 1,
+      "local_ts_ns": 2758238560022500,
+      "exch_ts": 1768264050077
+    },
+    {
+      "version": "604862473_2",
+      "version_id": 604862473,
+      "conn_id": 2,
+      "local_ts_ns": 2758238873481750,
+      "exch_ts": 1768264050391
+    },
+    {
+      "version": "604862473_2",
+      "version_id": 604862473,
+      "conn_id": 0,
+      "local_ts_ns": 2758238874060791,
+      "exch_ts": 1768264050391
+    },
+    {
+      "version": "604862473_2",
+      "version_id": 604862473,
+      "conn_id": 1,
+      "local_ts_ns": 2758238874367625,
+      "exch_ts": 1768264050391
+    },
+    {
+      "version": "604862474_2",
+      "version_id": 604862474,
+      "conn_id": 2,
+      "local_ts_ns": 2758238974788666,
+      "exch_ts": 1768264050493
+    },
+    {
+      "version": "604862474_2",
+      "version_id": 604862474,
+      "conn_id": 0,
+      "local_ts_ns": 2758238975341333,
+      "exch_ts": 1768264050493
+    },
+    {
+      "version": "604862474_2",
+      "version_id": 604862474,
+      "conn_id": 1,
+      "local_ts_ns": 2758238975708416,
+      "exch_ts": 1768264050493
+    },
+    {
+      "version": "604862475_2",
+      "version_id": 604862475,
+      "conn_id": 2,
+      "local_ts_ns": 2758239497490666,
+      "exch_ts": 1768264051013
+    },
+    {
+      "version": "604862475_2",
+      "version_id": 604862475,
+      "conn_id": 0,
+      "local_ts_ns": 2758239498077375,
+      "exch_ts": 1768264051013
+    },
+    {
+      "version": "604862475_2",
+      "version_id": 604862475,
+      "conn_id": 1,
+      "local_ts_ns": 2758239498354041,
+      "exch_ts": 1768264051013
+    },
+    {
+      "version": "604862476_2",
+      "version_id": 604862476,
+      "conn_id": 2,
+      "local_ts_ns": 2758239609599416,
+      "exch_ts": 1768264051123
+    },
+    {
+      "version": "604862476_2",
+      "version_id": 604862476,
+      "conn_id": 0,
+      "local_ts_ns": 2758239610075916,
+      "exch_ts": 1768264051123
+    },
+    {
+      "version": "604862476_2",
+      "version_id": 604862476,
+      "conn_id": 1,
+      "local_ts_ns": 2758239611141250,
+      "exch_ts": 1768264051123
+    },
+    {
+      "version": "604862487_2",
+      "version_id": 604862487,
+      "conn_id": 2,
+      "local_ts_ns": 2758239723045250,
+      "exch_ts": 1768264051236
+    },
+    {
+      "version": "604862487_2",
+      "version_id": 604862487,
+      "conn_id": 0,
+      "local_ts_ns": 2758239724095333,
+      "exch_ts": 1768264051236
+    },
+    {
+      "version": "604862487_2",
+      "version_id": 604862487,
+      "conn_id": 1,
+      "local_ts_ns": 2758239724297041,
+      "exch_ts": 1768264051236
+    },
+    {
+      "version": "604862492_2",
+      "version_id": 604862492,
+      "conn_id": 2,
+      "local_ts_ns": 2758239832557375,
+      "exch_ts": 1768264051346
+    },
+    {
+      "version": "604862492_2",
+      "version_id": 604862492,
+      "conn_id": 0,
+      "local_ts_ns": 2758239833319125,
+      "exch_ts": 1768264051346
+    },
+    {
+      "version": "604862492_2",
+      "version_id": 604862492,
+      "conn_id": 1,
+      "local_ts_ns": 2758239833544166,
+      "exch_ts": 1768264051346
+    },
+    {
+      "version": "604862567_2",
+      "version_id": 604862567,
+      "conn_id": 2,
+      "local_ts_ns": 2758239947316125,
+      "exch_ts": 1768264051457
+    },
+    {
+      "version": "604862567_2",
+      "version_id": 604862567,
+      "conn_id": 0,
+      "local_ts_ns": 2758239955715583,
+      "exch_ts": 1768264051457
+    },
+    {
+      "version": "604862567_2",
+      "version_id": 604862567,
+      "conn_id": 1,
+      "local_ts_ns": 2758239956197541,
+      "exch_ts": 1768264051457
+    },
+    {
+      "version": "604862581_2",
+      "version_id": 604862581,
+      "conn_id": 0,
+      "local_ts_ns": 2758240050083083,
+      "exch_ts": 1768264051565
+    },
+    {
+      "version": "604862581_2",
+      "version_id": 604862581,
+      "conn_id": 2,
+      "local_ts_ns": 2758240050711000,
+      "exch_ts": 1768264051565
+    },
+    {
+      "version": "604862581_2",
+      "version_id": 604862581,
+      "conn_id": 1,
+      "local_ts_ns": 2758240051038708,
+      "exch_ts": 1768264051565
+    },
+    {
+      "version": "604862583_2",
+      "version_id": 604862583,
+      "conn_id": 2,
+      "local_ts_ns": 2758240162082375,
+      "exch_ts": 1768264051671
+    },
+    {
+      "version": "604862583_2",
+      "version_id": 604862583,
+      "conn_id": 0,
+      "local_ts_ns": 2758240162715958,
+      "exch_ts": 1768264051671
+    },
+    {
+      "version": "604862583_2",
+      "version_id": 604862583,
+      "conn_id": 1,
+      "local_ts_ns": 2758240163082916,
+      "exch_ts": 1768264051671
+    },
+    {
+      "version": "604862593_2",
+      "version_id": 604862593,
+      "conn_id": 2,
+      "local_ts_ns": 2758240263222916,
+      "exch_ts": 1768264051777
+    },
+    {
+      "version": "604862593_2",
+      "version_id": 604862593,
+      "conn_id": 0,
+      "local_ts_ns": 2758240263946500,
+      "exch_ts": 1768264051777
+    },
+    {
+      "version": "604862593_2",
+      "version_id": 604862593,
+      "conn_id": 1,
+      "local_ts_ns": 2758240264401416,
+      "exch_ts": 1768264051777
+    },
+    {
+      "version": "604862597_2",
+      "version_id": 604862597,
+      "conn_id": 0,
+      "local_ts_ns": 2758240373388458,
+      "exch_ts": 1768264051887
+    },
+    {
+      "version": "604862597_2",
+      "version_id": 604862597,
+      "conn_id": 2,
+      "local_ts_ns": 2758240374363625,
+      "exch_ts": 1768264051887
+    },
+    {
+      "version": "604862597_2",
+      "version_id": 604862597,
+      "conn_id": 1,
+      "local_ts_ns": 2758240374968958,
+      "exch_ts": 1768264051887
+    },
+    {
+      "version": "604862599_2",
+      "version_id": 604862599,
+      "conn_id": 2,
+      "local_ts_ns": 2758240477028958,
+      "exch_ts": 1768264051990
+    },
+    {
+      "version": "604862599_2",
+      "version_id": 604862599,
+      "conn_id": 0,
+      "local_ts_ns": 2758240477557333,
+      "exch_ts": 1768264051990
+    },
+    {
+      "version": "604862599_2",
+      "version_id": 604862599,
+      "conn_id": 1,
+      "local_ts_ns": 2758240477838500,
+      "exch_ts": 1768264051990
+    },
+    {
+      "version": "604862607_2",
+      "version_id": 604862607,
+      "conn_id": 2,
+      "local_ts_ns": 2758240775129000,
+      "exch_ts": 1768264052209
+    },
+    {
+      "version": "604862607_2",
+      "version_id": 604862607,
+      "conn_id": 0,
+      "local_ts_ns": 2758240775985666,
+      "exch_ts": 1768264052209
+    },
+    {
+      "version": "604862607_2",
+      "version_id": 604862607,
+      "conn_id": 1,
+      "local_ts_ns": 2758240776309625,
+      "exch_ts": 1768264052209
+    },
+    {
+      "version": "604862608_2",
+      "version_id": 604862608,
+      "conn_id": 2,
+      "local_ts_ns": 2758240801856291,
+      "exch_ts": 1768264052316
+    },
+    {
+      "version": "604862608_2",
+      "version_id": 604862608,
+      "conn_id": 0,
+      "local_ts_ns": 2758240802335125,
+      "exch_ts": 1768264052316
+    },
+    {
+      "version": "604862608_2",
+      "version_id": 604862608,
+      "conn_id": 1,
+      "local_ts_ns": 2758240802532791,
+      "exch_ts": 1768264052316
+    },
+    {
+      "version": "604862611_2",
+      "version_id": 604862611,
+      "conn_id": 2,
+      "local_ts_ns": 2758240899553458,
+      "exch_ts": 1768264052418
+    },
+    {
+      "version": "604862611_2",
+      "version_id": 604862611,
+      "conn_id": 0,
+      "local_ts_ns": 2758240900001375,
+      "exch_ts": 1768264052418
+    },
+    {
+      "version": "604862611_2",
+      "version_id": 604862611,
+      "conn_id": 1,
+      "local_ts_ns": 2758240900194750,
+      "exch_ts": 1768264052418
+    },
+    {
+      "version": "604862624_2",
+      "version_id": 604862624,
+      "conn_id": 2,
+      "local_ts_ns": 2758241002638875,
+      "exch_ts": 1768264052520
+    },
+    {
+      "version": "604862624_2",
+      "version_id": 604862624,
+      "conn_id": 0,
+      "local_ts_ns": 2758241003475500,
+      "exch_ts": 1768264052520
+    },
+    {
+      "version": "604862624_2",
+      "version_id": 604862624,
+      "conn_id": 1,
+      "local_ts_ns": 2758241006018166,
+      "exch_ts": 1768264052520
+    },
+    {
+      "version": "604862625_2",
+      "version_id": 604862625,
+      "conn_id": 2,
+      "local_ts_ns": 2758241542343833,
+      "exch_ts": 1768264053044
+    },
+    {
+      "version": "604862625_2",
+      "version_id": 604862625,
+      "conn_id": 0,
+      "local_ts_ns": 2758241543091000,
+      "exch_ts": 1768264053044
+    },
+    {
+      "version": "604862625_2",
+      "version_id": 604862625,
+      "conn_id": 1,
+      "local_ts_ns": 2758241543475541,
+      "exch_ts": 1768264053044
+    },
+    {
+      "version": "604862634_2",
+      "version_id": 604862634,
+      "conn_id": 2,
+      "local_ts_ns": 2758241752205250,
+      "exch_ts": 1768264053264
+    },
+    {
+      "version": "604862634_2",
+      "version_id": 604862634,
+      "conn_id": 0,
+      "local_ts_ns": 2758241753008083,
+      "exch_ts": 1768264053264
+    },
+    {
+      "version": "604862634_2",
+      "version_id": 604862634,
+      "conn_id": 1,
+      "local_ts_ns": 2758241753255833,
+      "exch_ts": 1768264053264
+    },
+    {
+      "version": "604862637_2",
+      "version_id": 604862637,
+      "conn_id": 2,
+      "local_ts_ns": 2758241861318750,
+      "exch_ts": 1768264053376
+    },
+    {
+      "version": "604862637_2",
+      "version_id": 604862637,
+      "conn_id": 0,
+      "local_ts_ns": 2758241862000833,
+      "exch_ts": 1768264053376
+    },
+    {
+      "version": "604862637_2",
+      "version_id": 604862637,
+      "conn_id": 1,
+      "local_ts_ns": 2758241862455916,
+      "exch_ts": 1768264053376
+    },
+    {
+      "version": "604862639_2",
+      "version_id": 604862639,
+      "conn_id": 2,
+      "local_ts_ns": 2758241963191833,
+      "exch_ts": 1768264053478
+    },
+    {
+      "version": "604862639_2",
+      "version_id": 604862639,
+      "conn_id": 0,
+      "local_ts_ns": 2758241964420833,
+      "exch_ts": 1768264053478
+    },
+    {
+      "version": "604862639_2",
+      "version_id": 604862639,
+      "conn_id": 1,
+      "local_ts_ns": 2758241964989500,
+      "exch_ts": 1768264053478
+    },
+    {
+      "version": "604862676_2",
+      "version_id": 604862676,
+      "conn_id": 2,
+      "local_ts_ns": 2758242076015375,
+      "exch_ts": 1768264053590
+    },
+    {
+      "version": "604862676_2",
+      "version_id": 604862676,
+      "conn_id": 1,
+      "local_ts_ns": 2758242076636708,
+      "exch_ts": 1768264053590
+    },
+    {
+      "version": "604862676_2",
+      "version_id": 604862676,
+      "conn_id": 0,
+      "local_ts_ns": 2758242076962541,
+      "exch_ts": 1768264053590
+    },
+    {
+      "version": "604862681_2",
+      "version_id": 604862681,
+      "conn_id": 2,
+      "local_ts_ns": 2758242195366958,
+      "exch_ts": 1768264053700
+    },
+    {
+      "version": "604862681_2",
+      "version_id": 604862681,
+      "conn_id": 0,
+      "local_ts_ns": 2758242195866833,
+      "exch_ts": 1768264053700
+    },
+    {
+      "version": "604862681_2",
+      "version_id": 604862681,
+      "conn_id": 1,
+      "local_ts_ns": 2758242196075541,
+      "exch_ts": 1768264053700
+    },
+    {
+      "version": "604862685_2",
+      "version_id": 604862685,
+      "conn_id": 2,
+      "local_ts_ns": 2758242502457541,
+      "exch_ts": 1768264054019
+    },
+    {
+      "version": "604862685_2",
+      "version_id": 604862685,
+      "conn_id": 0,
+      "local_ts_ns": 2758242502671458,
+      "exch_ts": 1768264054019
+    },
+    {
+      "version": "604862685_2",
+      "version_id": 604862685,
+      "conn_id": 1,
+      "local_ts_ns": 2758242502748875,
+      "exch_ts": 1768264054019
+    },
+    {
+      "version": "604862686_2",
+      "version_id": 604862686,
+      "conn_id": 0,
+      "local_ts_ns": 2758242606162083,
+      "exch_ts": 1768264054124
+    },
+    {
+      "version": "604862686_2",
+      "version_id": 604862686,
+      "conn_id": 2,
+      "local_ts_ns": 2758242606756458,
+      "exch_ts": 1768264054124
+    },
+    {
+      "version": "604862686_2",
+      "version_id": 604862686,
+      "conn_id": 1,
+      "local_ts_ns": 2758242607001166,
+      "exch_ts": 1768264054124
+    },
+    {
+      "version": "604862694_2",
+      "version_id": 604862694,
+      "conn_id": 2,
+      "local_ts_ns": 2758242823574291,
+      "exch_ts": 1768264054339
+    },
+    {
+      "version": "604862694_2",
+      "version_id": 604862694,
+      "conn_id": 0,
+      "local_ts_ns": 2758242824403208,
+      "exch_ts": 1768264054339
+    },
+    {
+      "version": "604862694_2",
+      "version_id": 604862694,
+      "conn_id": 1,
+      "local_ts_ns": 2758242824705708,
+      "exch_ts": 1768264054339
+    },
+    {
+      "version": "604862695_2",
+      "version_id": 604862695,
+      "conn_id": 0,
+      "local_ts_ns": 2758243029956291,
+      "exch_ts": 1768264054544
+    },
+    {
+      "version": "604862695_2",
+      "version_id": 604862695,
+      "conn_id": 2,
+      "local_ts_ns": 2758243031094291,
+      "exch_ts": 1768264054544
+    },
+    {
+      "version": "604862695_2",
+      "version_id": 604862695,
+      "conn_id": 1,
+      "local_ts_ns": 2758243031418541,
+      "exch_ts": 1768264054544
+    },
+    {
+      "version": "604862696_2",
+      "version_id": 604862696,
+      "conn_id": 2,
+      "local_ts_ns": 2758243660508166,
+      "exch_ts": 1768264055175
+    },
+    {
+      "version": "604862696_2",
+      "version_id": 604862696,
+      "conn_id": 0,
+      "local_ts_ns": 2758243661274916,
+      "exch_ts": 1768264055175
+    },
+    {
+      "version": "604862696_2",
+      "version_id": 604862696,
+      "conn_id": 1,
+      "local_ts_ns": 2758243661742541,
+      "exch_ts": 1768264055175
+    },
+    {
+      "version": "604862697_2",
+      "version_id": 604862697,
+      "conn_id": 2,
+      "local_ts_ns": 2758244667357666,
+      "exch_ts": 1768264056102
+    },
+    {
+      "version": "604862697_2",
+      "version_id": 604862697,
+      "conn_id": 0,
+      "local_ts_ns": 2758244668473958,
+      "exch_ts": 1768264056102
+    },
+    {
+      "version": "604862697_2",
+      "version_id": 604862697,
+      "conn_id": 1,
+      "local_ts_ns": 2758244668779208,
+      "exch_ts": 1768264056102
+    },
+    {
+      "version": "604862737_2",
+      "version_id": 604862737,
+      "conn_id": 2,
+      "local_ts_ns": 2758246126683416,
+      "exch_ts": 1768264057634
+    },
+    {
+      "version": "604862737_2",
+      "version_id": 604862737,
+      "conn_id": 0,
+      "local_ts_ns": 2758246127709708,
+      "exch_ts": 1768264057634
+    },
+    {
+      "version": "604862737_2",
+      "version_id": 604862737,
+      "conn_id": 1,
+      "local_ts_ns": 2758246127982416,
+      "exch_ts": 1768264057634
+    },
+    {
+      "version": "604862738_2",
+      "version_id": 604862738,
+      "conn_id": 2,
+      "local_ts_ns": 2758246633881083,
+      "exch_ts": 1768264058146
+    },
+    {
+      "version": "604862738_2",
+      "version_id": 604862738,
+      "conn_id": 0,
+      "local_ts_ns": 2758246634736708,
+      "exch_ts": 1768264058146
+    },
+    {
+      "version": "604862738_2",
+      "version_id": 604862738,
+      "conn_id": 1,
+      "local_ts_ns": 2758246635040125,
+      "exch_ts": 1768264058146
+    },
+    {
+      "version": "604862744_2",
+      "version_id": 604862744,
+      "conn_id": 2,
+      "local_ts_ns": 2758246737528375,
+      "exch_ts": 1768264058251
+    },
+    {
+      "version": "604862744_2",
+      "version_id": 604862744,
+      "conn_id": 0,
+      "local_ts_ns": 2758246738154500,
+      "exch_ts": 1768264058251
+    },
+    {
+      "version": "604862744_2",
+      "version_id": 604862744,
+      "conn_id": 1,
+      "local_ts_ns": 2758246738631958,
+      "exch_ts": 1768264058251
+    },
+    {
+      "version": "604862760_2",
+      "version_id": 604862760,
+      "conn_id": 2,
+      "local_ts_ns": 2758246946069958,
+      "exch_ts": 1768264058461
+    },
+    {
+      "version": "604862760_2",
+      "version_id": 604862760,
+      "conn_id": 0,
+      "local_ts_ns": 2758246946641666,
+      "exch_ts": 1768264058461
+    },
+    {
+      "version": "604862760_2",
+      "version_id": 604862760,
+      "conn_id": 1,
+      "local_ts_ns": 2758246946961000,
+      "exch_ts": 1768264058461
+    },
+    {
+      "version": "604862761_2",
+      "version_id": 604862761,
+      "conn_id": 2,
+      "local_ts_ns": 2758247430504791,
+      "exch_ts": 1768264058869
+    },
+    {
+      "version": "604862761_2",
+      "version_id": 604862761,
+      "conn_id": 0,
+      "local_ts_ns": 2758247431336625,
+      "exch_ts": 1768264058869
+    },
+    {
+      "version": "604862761_2",
+      "version_id": 604862761,
+      "conn_id": 1,
+      "local_ts_ns": 2758247431744625,
+      "exch_ts": 1768264058869
+    },
+    {
+      "version": "604862762_2",
+      "version_id": 604862762,
+      "conn_id": 2,
+      "local_ts_ns": 2758248355239625,
+      "exch_ts": 1768264059783
+    },
+    {
+      "version": "604862762_2",
+      "version_id": 604862762,
+      "conn_id": 0,
+      "local_ts_ns": 2758248356312416,
+      "exch_ts": 1768264059783
+    },
+    {
+      "version": "604862762_2",
+      "version_id": 604862762,
+      "conn_id": 1,
+      "local_ts_ns": 2758248356494166,
+      "exch_ts": 1768264059783
+    },
+    {
+      "version": "604862763_2",
+      "version_id": 604862763,
+      "conn_id": 2,
+      "local_ts_ns": 2758248772827708,
+      "exch_ts": 1768264060290
+    },
+    {
+      "version": "604862763_2",
+      "version_id": 604862763,
+      "conn_id": 0,
+      "local_ts_ns": 2758248773745833,
+      "exch_ts": 1768264060290
+    },
+    {
+      "version": "604862763_2",
+      "version_id": 604862763,
+      "conn_id": 1,
+      "local_ts_ns": 2758248774430583,
+      "exch_ts": 1768264060290
+    },
+    {
+      "version": "604862764_2",
+      "version_id": 604862764,
+      "conn_id": 0,
+      "local_ts_ns": 2758248876808875,
+      "exch_ts": 1768264060392
+    },
+    {
+      "version": "604862764_2",
+      "version_id": 604862764,
+      "conn_id": 1,
+      "local_ts_ns": 2758248877485541,
+      "exch_ts": 1768264060392
+    },
+    {
+      "version": "604862764_2",
+      "version_id": 604862764,
+      "conn_id": 2,
+      "local_ts_ns": 2758248877752208,
+      "exch_ts": 1768264060392
+    },
+    {
+      "version": "604862765_2",
+      "version_id": 604862765,
+      "conn_id": 2,
+      "local_ts_ns": 2758248977767625,
+      "exch_ts": 1768264060495
+    },
+    {
+      "version": "604862765_2",
+      "version_id": 604862765,
+      "conn_id": 0,
+      "local_ts_ns": 2758248978306333,
+      "exch_ts": 1768264060495
+    },
+    {
+      "version": "604862765_2",
+      "version_id": 604862765,
+      "conn_id": 1,
+      "local_ts_ns": 2758248978642875,
+      "exch_ts": 1768264060495
+    },
+    {
+      "version": "604862766_2",
+      "version_id": 604862766,
+      "conn_id": 2,
+      "local_ts_ns": 2758249178104375,
+      "exch_ts": 1768264060697
+    },
+    {
+      "version": "604862766_2",
+      "version_id": 604862766,
+      "conn_id": 0,
+      "local_ts_ns": 2758249178625708,
+      "exch_ts": 1768264060697
+    },
+    {
+      "version": "604862766_2",
+      "version_id": 604862766,
+      "conn_id": 1,
+      "local_ts_ns": 2758249179158125,
+      "exch_ts": 1768264060697
+    },
+    {
+      "version": "604862768_2",
+      "version_id": 604862768,
+      "conn_id": 2,
+      "local_ts_ns": 2758250929580958,
+      "exch_ts": 1768264062444
+    }
+  ]
+}

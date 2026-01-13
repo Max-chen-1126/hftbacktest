@@ -92,12 +92,21 @@ class MultiConnectionValidator:
         stats = ConnectionStats(conn_id=conn_id)
         self.conn_stats[conn_id] = stats
 
+        print(f"[CONN {conn_id}] Connecting to {self.ws_url}...")
+
         try:
-            async with websockets.connect(
-                self.ws_url,
-                ping_interval=None,
-                ping_timeout=None,
-            ) as ws:
+            ws = await asyncio.wait_for(
+                websockets.connect(
+                    self.ws_url,
+                    ping_interval=20,
+                    ping_timeout=20,
+                    close_timeout=5,
+                ),
+                timeout=10.0
+            )
+            print(f"[CONN {conn_id}] Connected!")
+
+            try:
                 # Subscribe to depth
                 sub_msg = {
                     "topic": "depth",
@@ -105,84 +114,99 @@ class MultiConnectionValidator:
                     "params": {"binary": False, "symbol": self.symbol}
                 }
                 await ws.send(json.dumps(sub_msg))
+                print(f"[CONN {conn_id}] Subscribed to depth")
 
-                # Start ping task
-                async def ping_loop():
-                    while True:
-                        try:
-                            await ws.send(json.dumps({"ping": int(time.time() * 1000)}))
-                            await asyncio.sleep(10)
-                        except:
-                            break
+                msg_count = 0
 
-                ping_task = asyncio.create_task(ping_loop())
+                while True:
+                    elapsed_ns = self.get_timestamp_ns() - self.start_time_ns
+                    if elapsed_ns >= self.duration * 1_000_000_000:
+                        break
 
-                try:
-                    while True:
-                        elapsed_ns = self.get_timestamp_ns() - self.start_time_ns
-                        if elapsed_ns >= self.duration * 1_000_000_000:
-                            break
+                    try:
+                        msg = await asyncio.wait_for(ws.recv(), timeout=5.0)
+                        local_ts_ns = self.get_timestamp_ns()
 
-                        try:
-                            msg = await asyncio.wait_for(ws.recv(), timeout=5.0)
-                            local_ts_ns = self.get_timestamp_ns()
+                        data = json.loads(msg)
 
-                            data = json.loads(msg)
-                            if data.get('topic') != 'depth' or 'data' not in data:
-                                continue
-
-                            d = data['data']
-                            if isinstance(d, list) and len(d) > 0:
-                                d = d[0]
-
-                            version = d.get('v', '')
-                            exch_ts = d.get('t', 0)
-
-                            # Parse version ID
-                            version_id = 0
-                            if '_' in version:
-                                try:
-                                    version_id = int(version.split('_')[0])
-                                except:
-                                    pass
-
-                            event = VersionEvent(
-                                version=version,
-                                version_id=version_id,
-                                conn_id=conn_id,
-                                local_ts_ns=local_ts_ns,
-                                exch_ts=exch_ts
-                            )
-
-                            async with self.lock:
-                                self.all_events.append(event)
-                                stats.depth_count += 1
-                                stats.versions.append(version_id)
-                                if stats.first_ts_ns == 0:
-                                    stats.first_ts_ns = local_ts_ns
-                                stats.last_ts_ns = local_ts_ns
-
-                        except asyncio.TimeoutError:
+                        # Handle pong
+                        if 'pong' in data:
                             continue
 
-                finally:
-                    ping_task.cancel()
+                        if data.get('topic') != 'depth' or 'data' not in data:
+                            continue
 
+                        d = data['data']
+                        if isinstance(d, list) and len(d) > 0:
+                            d = d[0]
+
+                        version = d.get('v', '')
+                        exch_ts = d.get('t', 0)
+
+                        # Parse version ID
+                        version_id = 0
+                        if '_' in version:
+                            try:
+                                version_id = int(version.split('_')[0])
+                            except:
+                                pass
+
+                        event = VersionEvent(
+                            version=version,
+                            version_id=version_id,
+                            conn_id=conn_id,
+                            local_ts_ns=local_ts_ns,
+                            exch_ts=exch_ts
+                        )
+
+                        async with self.lock:
+                            self.all_events.append(event)
+                            stats.depth_count += 1
+                            stats.versions.append(version_id)
+                            if stats.first_ts_ns == 0:
+                                stats.first_ts_ns = local_ts_ns
+                            stats.last_ts_ns = local_ts_ns
+
+                        msg_count += 1
+                        if msg_count % 50 == 0:
+                            print(f"[CONN {conn_id}] Received {msg_count} depth messages")
+
+                    except asyncio.TimeoutError:
+                        print(f"[CONN {conn_id}] Timeout waiting for message")
+                        continue
+
+                print(f"[CONN {conn_id}] Done. Total: {msg_count} messages")
+
+            finally:
+                await ws.close()
+
+        except asyncio.TimeoutError:
+            print(f"[CONN {conn_id}] Connection timeout!")
         except Exception as e:
             print(f"[CONN {conn_id}] Error: {e}")
+            import traceback
+            traceback.print_exc()
 
     async def run(self):
         """Run all connections in parallel"""
         print(f"\n[INFO] Starting {self.num_connections} connections to {self.ws_url}")
+        print(f"[INFO] Adding 1s delay between connections to avoid rate limiting...")
         print(f"[INFO] Recording for {self.duration} seconds...")
         print("-" * 80)
 
         self.start_time_ns = self.get_timestamp_ns()
         self.start_datetime = datetime.now()
 
-        # Start all connections
-        tasks = [self.run_connection(i) for i in range(self.num_connections)]
-        await asyncio.gather(*tasks)
+        # Start connections with staggered delays to avoid rate limiting
+        tasks = []
+        for i in range(self.num_connections):
+            if i > 0:
+                print(f"[INFO] Waiting 1s before starting connection {i}...")
+                await asyncio.sleep(1.0)
+            task = asyncio.create_task(self.run_connection(i))
+            tasks.append(task)
+
+        await asyncio.gather(*tasks, return_exceptions=True)
 
         print("-" * 80)
         print(f"[INFO] Recording complete. Total events: {len(self.all_events)}")
@@ -195,12 +219,27 @@ class MultiConnectionValidator:
         print("MULTI-CONNECTION ANALYSIS")
         print("=" * 80)
 
+        if len(self.all_events) == 0:
+            print("[ERROR] No events collected - all connections may have failed")
+            return
+
         # Per-connection stats
         print("\n### Per-Connection Statistics ###")
+        successful_conns = 0
         for conn_id, stats in sorted(self.conn_stats.items()):
             duration_s = self.ns_to_ms(stats.last_ts_ns - stats.first_ts_ns) / 1000 if stats.first_ts_ns else 0
             rate = stats.depth_count / duration_s if duration_s > 0 else 0
-            print(f"  Conn {conn_id}: {stats.depth_count} events, {rate:.1f} events/sec")
+            status = "✓" if stats.depth_count > 0 else "✗"
+            print(f"  Conn {conn_id}: {status} {stats.depth_count} events, {rate:.1f} events/sec")
+            if stats.depth_count > 0:
+                successful_conns += 1
+
+        print(f"\n  Successful connections: {successful_conns}/{self.num_connections}")
+
+        if successful_conns < 2:
+            print("\n[WARN] Need at least 2 successful connections to analyze jitter")
+            print("[INFO] HashKey may have rate-limited multiple connections from same IP")
+            return
 
         # Group events by version
         version_events: dict[int, list[VersionEvent]] = {}
