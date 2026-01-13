@@ -37,6 +37,8 @@ use crate::{
     bybit::Bybit,
     connector::{Connector, ConnectorBuilder, GetOrders, PublishEvent},
 };
+#[cfg(feature = "hashkey")]
+use crate::hashkey::HashKey;
 
 #[cfg(feature = "binancefutures")]
 pub mod binancefutures;
@@ -44,6 +46,8 @@ pub mod binancefutures;
 pub mod binancespot;
 #[cfg(feature = "bybit")]
 pub mod bybit;
+#[cfg(feature = "hashkey")]
+pub mod hashkey;
 
 mod connector;
 //mod fuse;
@@ -403,6 +407,16 @@ async fn main() {
             let mut connector = BinanceSpot::build_from(&config)
                 .map_err(|error| {
                     error!(?error, "Couldn't build the Bybit connector.");
+                })
+                .unwrap();
+            connector.run(pub_tx.clone());
+            Box::new(connector)
+        }
+        #[cfg(feature = "hashkey")]
+        "hashkey" => {
+            let mut connector = HashKey::build_from(&config)
+                .map_err(|error| {
+                    error!(?error, "Couldn't build the HashKey connector.");
                 })
                 .unwrap();
             connector.run(pub_tx.clone());
