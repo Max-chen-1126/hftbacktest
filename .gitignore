@@ -9,3 +9,12 @@ docs/_build
 **/target
 **/tmp_*
 **/*.so
+
+.vscode/*
+.DS_Store
+.cursor/*
+.cursorrules
+.cursorignore
+
+CLAUDE.md
+.claude/*
