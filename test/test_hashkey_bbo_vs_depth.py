@@ -86,6 +86,11 @@ class Statistics:
     time_advantages_ms: list = field(default_factory=list)
 
 
+def price_to_tick(px: float, tick_size: float = 0.01) -> int:
+    """Convert price to tick integer to avoid float comparison issues"""
+    return int(round(px / tick_size))
+
+
 class BBOvsDepthValidator:
     def __init__(self, symbol: str, duration: int, env: str = "production"):
         self.symbol = symbol
@@ -110,9 +115,13 @@ class BBOvsDepthValidator:
         # Statistics
         self.stats = Statistics()
 
-        # Raw records
+        # Raw records (JSON)
         self.bbo_records = []
         self.depth_records = []
+
+        # Event lists for post-hoc analysis (with local_ts_ns)
+        self.bbo_events: list[BBOEvent] = []
+        self.depth_events: list[DepthBBOEvent] = []
 
         # For detecting who reports change first
         self.pending_bbo_change: Optional[dict] = None
@@ -197,13 +206,12 @@ class BBOvsDepthValidator:
         )
         self.last_bbo = event
 
-        # Check consistency with depth
-        if self.last_depth_bbo:
-            if (bid_price == self.last_depth_bbo.bid_price and
-                ask_price == self.last_depth_bbo.ask_price):
-                self.stats.bbo_depth_matches += 1
-            else:
-                self.stats.bbo_depth_mismatches += 1
+        # Store event for post-hoc windowed analysis
+        self.bbo_events.append(event)
+
+        # NOTE: Removed real-time consistency check here.
+        # Consistency is now calculated in analyze_consistency_windowed()
+        # using proper time alignment (±100ms window) and tick-based comparison.
 
         spread = ask_price - bid_price if bid_price and ask_price else 0
         change_str = " [CHANGED]" if bbo_changed else ""
@@ -263,6 +271,9 @@ class BBOvsDepthValidator:
             ask_levels=len(asks)
         )
         self.last_depth_bbo = event
+
+        # Store event for post-hoc windowed analysis
+        self.depth_events.append(event)
 
         spread = ask_price - bid_price
         change_str = " [CHANGED]" if bbo_changed else ""
@@ -344,6 +355,103 @@ class BBOvsDepthValidator:
         print("-" * 80)
         print(f"[INFO] Recording complete. BBO: {self.stats.bbo_count}, "
               f"Depth: {self.stats.depth_count}")
+
+    def analyze_consistency_windowed(
+        self, window_ms: float = 100, stale_ms: float = 2000, tick_size: float = 0.01
+    ):
+        """
+        Calculate BBO vs Depth consistency using proper time alignment.
+
+        Methodology:
+        - Time alignment: Find closest depth snapshot within ±window_ms
+        - Price comparison: Use tick-based comparison to avoid float precision issues
+        - Stale filter: Skip if time gap exceeds stale_ms
+
+        Args:
+            window_ms: Maximum time difference to consider a valid match (default: 100ms)
+            stale_ms: Skip comparison if gap exceeds this value (default: 2000ms)
+            tick_size: Price tick size for comparison (default: 0.01)
+        """
+        if not self.bbo_events or not self.depth_events:
+            print("\n--- Data Consistency (Windowed) ---")
+            print("Insufficient data for windowed analysis")
+            return
+
+        depth = self.depth_events
+        depth_idx = 0
+
+        matches = 0
+        mismatches = 0
+        skipped_no_depth = 0
+        skipped_stale = 0
+
+        for b in self.bbo_events:
+            # Two-pointer: find the closest depth event
+            while (
+                depth_idx + 1 < len(depth)
+                and depth[depth_idx + 1].local_ts_ns <= b.local_ts_ns
+            ):
+                depth_idx += 1
+
+            # Consider both the current and next depth as candidates
+            candidates = [depth[depth_idx]]
+            if depth_idx + 1 < len(depth):
+                candidates.append(depth[depth_idx + 1])
+
+            # Find the one with minimum time difference
+            best = min(candidates, key=lambda d: abs(d.local_ts_ns - b.local_ts_ns))
+            dt_ms = abs(best.local_ts_ns - b.local_ts_ns) / 1_000_000
+
+            # Window filter: skip if no depth within window
+            if dt_ms > window_ms:
+                skipped_no_depth += 1
+                continue
+
+            # Stale filter: skip if gap is too large (shouldn't happen if window_ms < stale_ms)
+            if dt_ms > stale_ms:
+                skipped_stale += 1
+                continue
+
+            # Tick-based comparison to avoid float precision issues
+            b_bid = price_to_tick(b.bid_price, tick_size)
+            b_ask = price_to_tick(b.ask_price, tick_size)
+            d_bid = price_to_tick(best.bid_price, tick_size)
+            d_ask = price_to_tick(best.ask_price, tick_size)
+
+            if b_bid == d_bid and b_ask == d_ask:
+                matches += 1
+            else:
+                mismatches += 1
+
+        total = matches + mismatches
+
+        print("\n--- Data Consistency (Windowed) ---")
+        print(
+            f"Parameters: window=±{window_ms}ms, stale>{stale_ms}ms excluded, tick_size={tick_size}"
+        )
+        print(f"Matches:    {matches}")
+        print(f"Mismatches: {mismatches}")
+        print(f"Total compared: {total}")
+        if total > 0:
+            match_rate = matches / total * 100
+            print(f"Match rate: {match_rate:.1f}%")
+            # Store for statistics
+            self.stats.bbo_depth_matches = matches
+            self.stats.bbo_depth_mismatches = mismatches
+        print(f"Skipped (no depth in window): {skipped_no_depth}")
+        print(f"Skipped (stale): {skipped_stale}")
+
+        return {
+            "matches": matches,
+            "mismatches": mismatches,
+            "total": total,
+            "match_rate": matches / total * 100 if total > 0 else None,
+            "skipped_no_depth": skipped_no_depth,
+            "skipped_stale": skipped_stale,
+            "window_ms": window_ms,
+            "stale_ms": stale_ms,
+            "tick_size": tick_size,
+        }
 
     def analyze_comparison(self):
         """Compare BBO vs Depth performance"""
@@ -429,13 +537,8 @@ class BBOvsDepthValidator:
             depth_change_rate = self.stats.depth_bbo_changes / self.stats.depth_count * 100
             print(f"Depth change rate: {depth_change_rate:.1f}%")
 
-        print("\n--- Data Consistency ---")
-        total_checks = self.stats.bbo_depth_matches + self.stats.bbo_depth_mismatches
-        if total_checks > 0:
-            match_rate = self.stats.bbo_depth_matches / total_checks * 100
-            print(f"Matches:    {self.stats.bbo_depth_matches}")
-            print(f"Mismatches: {self.stats.bbo_depth_mismatches}")
-            print(f"Match rate: {match_rate:.1f}%")
+        # Use windowed consistency analysis instead of real-time comparison
+        self.analyze_consistency_windowed(window_ms=100, stale_ms=2000, tick_size=0.01)
 
         # Verdict
         print("\n" + "-" * 40)
@@ -479,33 +582,63 @@ class BBOvsDepthValidator:
                     "count": self.stats.bbo_count,
                     "changes": self.stats.bbo_changes,
                     "latency_ms": {
-                        "min": min(self.stats.bbo_latencies_ms) if self.stats.bbo_latencies_ms else None,
-                        "max": max(self.stats.bbo_latencies_ms) if self.stats.bbo_latencies_ms else None,
-                        "mean": statistics.mean(self.stats.bbo_latencies_ms) if self.stats.bbo_latencies_ms else None,
+                        "min": min(self.stats.bbo_latencies_ms)
+                        if self.stats.bbo_latencies_ms
+                        else None,
+                        "max": max(self.stats.bbo_latencies_ms)
+                        if self.stats.bbo_latencies_ms
+                        else None,
+                        "mean": statistics.mean(self.stats.bbo_latencies_ms)
+                        if self.stats.bbo_latencies_ms
+                        else None,
                     },
                     "interval_ms": {
-                        "min": min(self.stats.bbo_intervals_ms) if self.stats.bbo_intervals_ms else None,
-                        "max": max(self.stats.bbo_intervals_ms) if self.stats.bbo_intervals_ms else None,
-                        "mean": statistics.mean(self.stats.bbo_intervals_ms) if self.stats.bbo_intervals_ms else None,
+                        "min": min(self.stats.bbo_intervals_ms)
+                        if self.stats.bbo_intervals_ms
+                        else None,
+                        "max": max(self.stats.bbo_intervals_ms)
+                        if self.stats.bbo_intervals_ms
+                        else None,
+                        "mean": statistics.mean(self.stats.bbo_intervals_ms)
+                        if self.stats.bbo_intervals_ms
+                        else None,
                     },
                 },
                 "depth": {
                     "count": self.stats.depth_count,
                     "bbo_changes": self.stats.depth_bbo_changes,
                     "latency_ms": {
-                        "min": min(self.stats.depth_latencies_ms) if self.stats.depth_latencies_ms else None,
-                        "max": max(self.stats.depth_latencies_ms) if self.stats.depth_latencies_ms else None,
-                        "mean": statistics.mean(self.stats.depth_latencies_ms) if self.stats.depth_latencies_ms else None,
+                        "min": min(self.stats.depth_latencies_ms)
+                        if self.stats.depth_latencies_ms
+                        else None,
+                        "max": max(self.stats.depth_latencies_ms)
+                        if self.stats.depth_latencies_ms
+                        else None,
+                        "mean": statistics.mean(self.stats.depth_latencies_ms)
+                        if self.stats.depth_latencies_ms
+                        else None,
                     },
                     "interval_ms": {
-                        "min": min(self.stats.depth_intervals_ms) if self.stats.depth_intervals_ms else None,
-                        "max": max(self.stats.depth_intervals_ms) if self.stats.depth_intervals_ms else None,
-                        "mean": statistics.mean(self.stats.depth_intervals_ms) if self.stats.depth_intervals_ms else None,
+                        "min": min(self.stats.depth_intervals_ms)
+                        if self.stats.depth_intervals_ms
+                        else None,
+                        "max": max(self.stats.depth_intervals_ms)
+                        if self.stats.depth_intervals_ms
+                        else None,
+                        "mean": statistics.mean(self.stats.depth_intervals_ms)
+                        if self.stats.depth_intervals_ms
+                        else None,
                     },
                 },
                 "consistency": {
                     "matches": self.stats.bbo_depth_matches,
                     "mismatches": self.stats.bbo_depth_mismatches,
+                    "methodology": {
+                        "description": "Windowed time-aligned comparison with tick-based price matching",
+                        "window_ms": 100,
+                        "stale_ms": 2000,
+                        "tick_size": 0.01,
+                    },
                 },
             },
             "bbo_records": self.bbo_records,
